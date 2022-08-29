@@ -1,9 +1,37 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Find a better title some day</title><link>https://mbesson.github.io/posts/</link><description>Recent content in Posts on Find a better title some day</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 18 Aug 2022 09:17:02 +0200</lastBuildDate><atom:link href="https://mbesson.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>My third article</title><link>https://mbesson.github.io/posts/azure_network_architecture/</link><pubDate>Thu, 18 Aug 2022 09:17:02 +0200</pubDate><guid>https://mbesson.github.io/posts/azure_network_architecture/</guid><description/></item><item><title>Secure your linux VM in the cloud</title><link>https://mbesson.github.io/posts/secure_linux/</link><pubDate>Thu, 18 Aug 2022 09:17:00 +0200</pubDate><guid>https://mbesson.github.io/posts/secure_linux/</guid><description>1. Enable auto update For manual apt update apt dist-update
-sudo apt install unattended-upgrades sudo dpkg-reconfigure &amp;ndash;priority=low unattended-upgrades
--&amp;gt; Yes
-2. Limited User Account adduser prompt for password
-usermod -aG sudo 3. Password are for suckers auth key pair
-Give the publci key to the server Use the private key
-on the linux server : mkdir ~/.ssh &amp;amp;&amp;amp; chmod 700 ~/.ssh
-on the machine : ssh-keygen -b 4096
-scp ~/.ssh/id_rsa.pub mathieu@192.</description></item><item><title>Hello World!</title><link>https://mbesson.github.io/posts/about/</link><pubDate>Thu, 18 Aug 2022 09:16:46 +0200</pubDate><guid>https://mbesson.github.io/posts/about/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on My technical notes on Cloud, Data and much more</title><link>https://mbesson.github.io/posts/</link><description>Recent content in Posts on My technical notes on Cloud, Data and much more</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>mathieu.besson@tuta.io (Mathieu Besson)</managingEditor><webMaster>mathieu.besson@tuta.io (Mathieu Besson)</webMaster><copyright>2022 Mathieu Besson All rights reserved</copyright><lastBuildDate>Thu, 18 Aug 2022 09:17:02 +0200</lastBuildDate><atom:link href="https://mbesson.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>My third article</title><link>https://mbesson.github.io/posts/azure_network_architecture/</link><pubDate>Thu, 18 Aug 2022 09:17:02 +0200</pubDate><author>mathieu.besson@tuta.io (Mathieu Besson)</author><guid>https://mbesson.github.io/posts/azure_network_architecture/</guid><description/></item><item><title>Secure your linux VM in the cloud</title><link>https://mbesson.github.io/posts/secure_linux/</link><pubDate>Thu, 18 Aug 2022 09:17:00 +0200</pubDate><author>mathieu.besson@tuta.io (Mathieu Besson)</author><guid>https://mbesson.github.io/posts/secure_linux/</guid><description>&lt;h2 id="1-enable-auto-update">1. Enable auto update&lt;/h2>
+&lt;p>For manual
+apt update
+apt dist-update&lt;/p>
+&lt;p>sudo apt install unattended-upgrades
+sudo dpkg-reconfigure &amp;ndash;priority=low unattended-upgrades&lt;/p>
+&lt;p>-&amp;gt; Yes&lt;/p>
+&lt;h2 id="2-limited-user-account">2. Limited User Account&lt;/h2>
+&lt;p>adduser &lt;!-- raw HTML omitted -->&lt;/p>
+&lt;p>prompt for password&lt;/p>
+&lt;p>usermod -aG sudo &lt;!-- raw HTML omitted -->&lt;/p>
+&lt;h2 id="3-password-are-for-suckers">3. Password are for suckers&lt;/h2>
+&lt;p>auth key pair&lt;/p>
+&lt;p>Give the publci key to the server
+Use the private key&lt;/p>
+&lt;p>on the linux server : mkdir ~/.ssh &amp;amp;&amp;amp; chmod 700 ~/.ssh&lt;/p>
+&lt;p>on the machine : ssh-keygen -b 4096&lt;/p>
+&lt;p>scp ~/.ssh/id_rsa.pub &lt;a href="mailto:mathieu@192.168.1.38">mathieu@192.168.1.38&lt;/a>:~/.ssh/authorized_keys&lt;/p>
+&lt;h2 id="4-lockdown-logins-harden-ssh">4. Lockdown logins (harden ssh)&lt;/h2>
+&lt;p>sudo vim /etc/ssh/sshd_config&lt;/p>
+&lt;p>-&amp;gt; change de port : by default, it is 22. Use Something random like 717
+AddressFamily inet&lt;/p>
+&lt;p>PermitRootLogin must be change to no
+PasswordAuthentication to no&lt;/p>
+&lt;p>sudo systemctl restart sshd&lt;/p>
+&lt;p>No to connect, use ssh user@ip -p 717&lt;/p>
+&lt;h2 id="5-firewall-it-up">5. Firewall it up&lt;/h2>
+&lt;p>sudo ss -tupln if something is wierd, uninstall it.&lt;/p>
+&lt;p>firewaal it up&lt;/p>
+&lt;p>sudp apt install ufw
+sudo ufw allow 717
+sudo ufw enable&lt;/p>
+&lt;p>block pings&lt;/p>
+&lt;p>sudo vim /etc/ufw/before.rules
+on the paragraphe for ok icmp codes for input
+-A ufw-before-input -p icmp &amp;ndash;icmp-type echo-request -j DROP&lt;/p>
+&lt;p>and sudo reboot&lt;/p></description></item><item><title>Hello World!</title><link>https://mbesson.github.io/posts/about/</link><pubDate>Thu, 18 Aug 2022 09:16:46 +0200</pubDate><author>mathieu.besson@tuta.io (Mathieu Besson)</author><guid>https://mbesson.github.io/posts/about/</guid><description/></item></channel></rss>
