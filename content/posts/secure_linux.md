@@ -2,27 +2,45 @@
 title: "Secure your linux VM in the cloud"
 date: 2022-08-18T09:17:00+02:00
 draft: false
+authors: ["Mathieu Besson"]
+tags: ["linux", "security", "cloud"]
 ---
 
+# How to secure your linux VM in the cloud? 
 ## 1. Enable auto update
 
-For manual
+If you want manual updates: 
+
+```bash
 apt update
 apt dist-update
+```
 
+
+
+If you want automatic updates: 
+```bash
 sudo apt install unattended-upgrades
 sudo dpkg-reconfigure --priority=low unattended-upgrades
+```
 
--> Yes
+A GUI will appear end make sure you've selected "yes".
 
 ## 2. Limited User Account
 
+### Creating Groups
+
+### Creating users and adding them to a group
+
+```bash
 adduser <username>
+```
 
-prompt for password
+Then, you will be prompt for password
 
-usermod -aG sudo <username>
-
+```bash
+ usermod -aG sudo <username>
+```
 ## 3. Password are for suckers
 
 auth key pair
@@ -30,11 +48,19 @@ auth key pair
 Give the publci key to the server
 Use the private key 
 
-on the linux server : mkdir ~/.ssh && chmod 700 ~/.ssh
+on the linux server: 
+```bash
+mkdir ~/.ssh && chmod 700 ~/.ssh
+```
 
-on the machine : ssh-keygen -b 4096 
+on the machine:
 
+```bash
+ssh-keygen -b 4096 
 scp ~/.ssh/id_rsa.pub mathieu@192.168.1.38:~/.ssh/authorized_keys
+```
+
+
 
 ## 4. Lockdown logins (harden ssh)
 
