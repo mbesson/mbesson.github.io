@@ -6,7 +6,6 @@ resourceDir = "../resources"
 
 rssLimit = 20
 copyright = "2022 Mathieu Besson All rights reserved"
-languageCode = "en-us"
 
 [author]
 	name = "Mathieu Besson"
