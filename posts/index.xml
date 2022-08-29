@@ -1,22 +1,28 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on My technical notes on Cloud, Data and much more</title><link>https://mbesson.github.io/posts/</link><description>Recent content in Posts on My technical notes on Cloud, Data and much more</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>mathieu.besson@tuta.io (Mathieu Besson)</managingEditor><webMaster>mathieu.besson@tuta.io (Mathieu Besson)</webMaster><copyright>2022 Mathieu Besson All rights reserved</copyright><lastBuildDate>Thu, 18 Aug 2022 09:17:02 +0200</lastBuildDate><atom:link href="https://mbesson.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>My third article</title><link>https://mbesson.github.io/posts/azure_network_architecture/</link><pubDate>Thu, 18 Aug 2022 09:17:02 +0200</pubDate><author>mathieu.besson@tuta.io (Mathieu Besson)</author><guid>https://mbesson.github.io/posts/azure_network_architecture/</guid><description/></item><item><title>Secure your linux VM in the cloud</title><link>https://mbesson.github.io/posts/secure_linux/</link><pubDate>Thu, 18 Aug 2022 09:17:00 +0200</pubDate><author>mathieu.besson@tuta.io (Mathieu Besson)</author><guid>https://mbesson.github.io/posts/secure_linux/</guid><description>&lt;h2 id="1-enable-auto-update">1. Enable auto update&lt;/h2>
-&lt;p>For manual
-apt update
-apt dist-update&lt;/p>
-&lt;p>sudo apt install unattended-upgrades
-sudo dpkg-reconfigure &amp;ndash;priority=low unattended-upgrades&lt;/p>
-&lt;p>-&amp;gt; Yes&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on My technical notes on Cloud, Data and much more</title><link>https://mbesson.github.io/posts/</link><description>Recent content in Posts on My technical notes on Cloud, Data and much more</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>mathieu.besson@tuta.io (Mathieu Besson)</managingEditor><webMaster>mathieu.besson@tuta.io (Mathieu Besson)</webMaster><copyright>2022 Mathieu Besson All rights reserved</copyright><lastBuildDate>Thu, 18 Aug 2022 09:17:02 +0200</lastBuildDate><atom:link href="https://mbesson.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>My third article</title><link>https://mbesson.github.io/posts/azure_network_architecture/</link><pubDate>Thu, 18 Aug 2022 09:17:02 +0200</pubDate><author>mathieu.besson@tuta.io (Mathieu Besson)</author><guid>https://mbesson.github.io/posts/azure_network_architecture/</guid><description/></item><item><title>Secure your linux VM in the cloud</title><link>https://mbesson.github.io/posts/secure_linux/</link><pubDate>Thu, 18 Aug 2022 09:17:00 +0200</pubDate><author>mathieu.besson@tuta.io (Mathieu Besson)</author><guid>https://mbesson.github.io/posts/secure_linux/</guid><description>&lt;h1 id="how-to-secure-your-linux-vm-in-the-cloud">How to secure your linux VM in the cloud?&lt;/h1>
+&lt;h2 id="1-enable-auto-update">1. Enable auto update&lt;/h2>
+&lt;p>If you want manual updates:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>apt update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt dist-update
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If you want automatic updates:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt install unattended-upgrades
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo dpkg-reconfigure --priority&lt;span style="color:#f92672">=&lt;/span>low unattended-upgrades
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>A GUI will appear end make sure you&amp;rsquo;ve selected &amp;ldquo;yes&amp;rdquo;.&lt;/p>
 &lt;h2 id="2-limited-user-account">2. Limited User Account&lt;/h2>
-&lt;p>adduser &lt;!-- raw HTML omitted -->&lt;/p>
-&lt;p>prompt for password&lt;/p>
-&lt;p>usermod -aG sudo &lt;!-- raw HTML omitted -->&lt;/p>
-&lt;h2 id="3-password-are-for-suckers">3. Password are for suckers&lt;/h2>
+&lt;h3 id="creating-groups">Creating Groups&lt;/h3>
+&lt;h3 id="creating-users-and-adding-them-to-a-group">Creating users and adding them to a group&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>adduser &amp;lt;username&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then, you will be prompt for password&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span> usermod -aG sudo &amp;lt;username&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="3-password-are-for-suckers">3. Password are for suckers&lt;/h2>
 &lt;p>auth key pair&lt;/p>
 &lt;p>Give the publci key to the server
 Use the private key&lt;/p>
-&lt;p>on the linux server : mkdir ~/.ssh &amp;amp;&amp;amp; chmod 700 ~/.ssh&lt;/p>
-&lt;p>on the machine : ssh-keygen -b 4096&lt;/p>
-&lt;p>scp ~/.ssh/id_rsa.pub &lt;a href="mailto:mathieu@192.168.1.38">mathieu@192.168.1.38&lt;/a>:~/.ssh/authorized_keys&lt;/p>
-&lt;h2 id="4-lockdown-logins-harden-ssh">4. Lockdown logins (harden ssh)&lt;/h2>
+&lt;p>on the linux server:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>mkdir ~/.ssh &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> chmod &lt;span style="color:#ae81ff">700&lt;/span> ~/.ssh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>on the machine:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ssh-keygen -b &lt;span style="color:#ae81ff">4096&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>scp ~/.ssh/id_rsa.pub mathieu@192.168.1.38:~/.ssh/authorized_keys
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="4-lockdown-logins-harden-ssh">4. Lockdown logins (harden ssh)&lt;/h2>
 &lt;p>sudo vim /etc/ssh/sshd_config&lt;/p>
 &lt;p>-&amp;gt; change de port : by default, it is 22. Use Something random like 717
 AddressFamily inet&lt;/p>

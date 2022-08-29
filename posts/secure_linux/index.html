@@ -1,43 +1,33 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Secure your linux VM in the cloud | My technical notes on Cloud, Data and much more</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="1. Enable auto update For manual apt update apt dist-update
-sudo apt install unattended-upgrades sudo dpkg-reconfigure &ndash;priority=low unattended-upgrades
--> Yes
-2. Limited User Account adduser prompt for password
-usermod -aG sudo 3. Password are for suckers auth key pair
-Give the publci key to the server Use the private key
-on the linux server : mkdir ~/.ssh && chmod 700 ~/.ssh
-on the machine : ssh-keygen -b 4096
-scp ~/.ssh/id_rsa.pub mathieu@192."><meta name=generator content="Hugo 0.102.0"><meta name=robots content="noindex, nofollow"><link rel=stylesheet href=/ananke/css/main.min.css><meta property="og:title" content="Secure your linux VM in the cloud"><meta property="og:description" content="1. Enable auto update For manual apt update apt dist-update
-sudo apt install unattended-upgrades sudo dpkg-reconfigure &ndash;priority=low unattended-upgrades
--> Yes
-2. Limited User Account adduser prompt for password
-usermod -aG sudo 3. Password are for suckers auth key pair
-Give the publci key to the server Use the private key
-on the linux server : mkdir ~/.ssh && chmod 700 ~/.ssh
-on the machine : ssh-keygen -b 4096
-scp ~/.ssh/id_rsa.pub mathieu@192."><meta property="og:type" content="article"><meta property="og:url" content="https://mbesson.github.io/posts/secure_linux/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-08-18T09:17:00+02:00"><meta property="article:modified_time" content="2022-08-18T09:17:00+02:00"><meta itemprop=name content="Secure your linux VM in the cloud"><meta itemprop=description content="1. Enable auto update For manual apt update apt dist-update
-sudo apt install unattended-upgrades sudo dpkg-reconfigure &ndash;priority=low unattended-upgrades
--> Yes
-2. Limited User Account adduser prompt for password
-usermod -aG sudo 3. Password are for suckers auth key pair
-Give the publci key to the server Use the private key
-on the linux server : mkdir ~/.ssh && chmod 700 ~/.ssh
-on the machine : ssh-keygen -b 4096
-scp ~/.ssh/id_rsa.pub mathieu@192."><meta itemprop=datePublished content="2022-08-18T09:17:00+02:00"><meta itemprop=dateModified content="2022-08-18T09:17:00+02:00"><meta itemprop=wordCount content="169"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="Secure your linux VM in the cloud"><meta name=twitter:description content="1. Enable auto update For manual apt update apt dist-update
-sudo apt install unattended-upgrades sudo dpkg-reconfigure &ndash;priority=low unattended-upgrades
--> Yes
-2. Limited User Account adduser prompt for password
-usermod -aG sudo 3. Password are for suckers auth key pair
-Give the publci key to the server Use the private key
-on the linux server : mkdir ~/.ssh && chmod 700 ~/.ssh
-on the machine : ssh-keygen -b 4096
-scp ~/.ssh/id_rsa.pub mathieu@192."></head><body class="ma0 avenir bg-near-white"><header><div class=bg-black><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l justify-between items-center center"><a href=/ class="f3 fw2 hover-white no-underline white-90 dib">My technical notes on Cloud, Data and much more</a><div class="flex-l items-center"><div class=ananke-socials></div></div></div></nav></div></header><main class=pb7 role=main><article class="flex-l flex-wrap justify-between mw8 center ph3"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked">POSTS</aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">Secure your linux VM in the cloud</h1><time class="f6 mv4 dib tracked" datetime=2022-08-18T09:17:00+02:00>August 18, 2022</time></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id=1-enable-auto-update>1. Enable auto update</h2><p>For manual
-apt update
-apt dist-update</p><p>sudo apt install unattended-upgrades
-sudo dpkg-reconfigure &ndash;priority=low unattended-upgrades</p><p>-> Yes</p><h2 id=2-limited-user-account>2. Limited User Account</h2><p>adduser</p><p>prompt for password</p><p>usermod -aG sudo</p><h2 id=3-password-are-for-suckers>3. Password are for suckers</h2><p>auth key pair</p><p>Give the publci key to the server
-Use the private key</p><p>on the linux server : mkdir ~/.ssh && chmod 700 ~/.ssh</p><p>on the machine : ssh-keygen -b 4096</p><p>scp ~/.ssh/id_rsa.pub <a href=mailto:mathieu@192.168.1.38>mathieu@192.168.1.38</a>:~/.ssh/authorized_keys</p><h2 id=4-lockdown-logins-harden-ssh>4. Lockdown logins (harden ssh)</h2><p>sudo vim /etc/ssh/sshd_config</p><p>-> change de port : by default, it is 22. Use Something random like 717
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Secure your linux VM in the cloud | My technical notes on Cloud, Data and much more</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="How to secure your linux VM in the cloud? 1. Enable auto update If you want manual updates:
+apt update apt dist-update If you want automatic updates:
+sudo apt install unattended-upgrades sudo dpkg-reconfigure --priority=low unattended-upgrades A GUI will appear end make sure you&rsquo;ve selected &ldquo;yes&rdquo;.
+2. Limited User Account Creating Groups Creating users and adding them to a group adduser <username> Then, you will be prompt for password
+usermod -aG sudo <username> 3."><meta name=generator content="Hugo 0.102.0"><meta name=robots content="noindex, nofollow"><link rel=stylesheet href=/ananke/css/main.min.css><meta property="og:title" content="Secure your linux VM in the cloud"><meta property="og:description" content="How to secure your linux VM in the cloud? 1. Enable auto update If you want manual updates:
+apt update apt dist-update If you want automatic updates:
+sudo apt install unattended-upgrades sudo dpkg-reconfigure --priority=low unattended-upgrades A GUI will appear end make sure you&rsquo;ve selected &ldquo;yes&rdquo;.
+2. Limited User Account Creating Groups Creating users and adding them to a group adduser <username> Then, you will be prompt for password
+usermod -aG sudo <username> 3."><meta property="og:type" content="article"><meta property="og:url" content="https://mbesson.github.io/posts/secure_linux/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-08-18T09:17:00+02:00"><meta property="article:modified_time" content="2022-08-18T09:17:00+02:00"><meta itemprop=name content="Secure your linux VM in the cloud"><meta itemprop=description content="How to secure your linux VM in the cloud? 1. Enable auto update If you want manual updates:
+apt update apt dist-update If you want automatic updates:
+sudo apt install unattended-upgrades sudo dpkg-reconfigure --priority=low unattended-upgrades A GUI will appear end make sure you&rsquo;ve selected &ldquo;yes&rdquo;.
+2. Limited User Account Creating Groups Creating users and adding them to a group adduser <username> Then, you will be prompt for password
+usermod -aG sudo <username> 3."><meta itemprop=datePublished content="2022-08-18T09:17:00+02:00"><meta itemprop=dateModified content="2022-08-18T09:17:00+02:00"><meta itemprop=wordCount content="208"><meta itemprop=keywords content="linux,security,cloud,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Secure your linux VM in the cloud"><meta name=twitter:description content="How to secure your linux VM in the cloud? 1. Enable auto update If you want manual updates:
+apt update apt dist-update If you want automatic updates:
+sudo apt install unattended-upgrades sudo dpkg-reconfigure --priority=low unattended-upgrades A GUI will appear end make sure you&rsquo;ve selected &ldquo;yes&rdquo;.
+2. Limited User Account Creating Groups Creating users and adding them to a group adduser <username> Then, you will be prompt for password
+usermod -aG sudo <username> 3."></head><body class="ma0 avenir bg-near-white"><header><div class=bg-black><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l justify-between items-center center"><a href=/ class="f3 fw2 hover-white no-underline white-90 dib">My technical notes on Cloud, Data and much more</a><div class="flex-l items-center"><div class=ananke-socials></div></div></div></nav></div></header><main class=pb7 role=main><article class="flex-l flex-wrap justify-between mw8 center ph3"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked">POSTS</aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">Secure your linux VM in the cloud</h1><time class="f6 mv4 dib tracked" datetime=2022-08-18T09:17:00+02:00>August 18, 2022</time></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id=how-to-secure-your-linux-vm-in-the-cloud>How to secure your linux VM in the cloud?</h1><h2 id=1-enable-auto-update>1. Enable auto update</h2><p>If you want manual updates:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>apt update
+</span></span><span style=display:flex><span>apt dist-update
+</span></span></code></pre></div><p>If you want automatic updates:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo apt install unattended-upgrades
+</span></span><span style=display:flex><span>sudo dpkg-reconfigure --priority<span style=color:#f92672>=</span>low unattended-upgrades
+</span></span></code></pre></div><p>A GUI will appear end make sure you&rsquo;ve selected &ldquo;yes&rdquo;.</p><h2 id=2-limited-user-account>2. Limited User Account</h2><h3 id=creating-groups>Creating Groups</h3><h3 id=creating-users-and-adding-them-to-a-group>Creating users and adding them to a group</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>adduser &lt;username&gt;
+</span></span></code></pre></div><p>Then, you will be prompt for password</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span> usermod -aG sudo &lt;username&gt;
+</span></span></code></pre></div><h2 id=3-password-are-for-suckers>3. Password are for suckers</h2><p>auth key pair</p><p>Give the publci key to the server
+Use the private key</p><p>on the linux server:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>mkdir ~/.ssh <span style=color:#f92672>&amp;&amp;</span> chmod <span style=color:#ae81ff>700</span> ~/.ssh
+</span></span></code></pre></div><p>on the machine:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>ssh-keygen -b <span style=color:#ae81ff>4096</span> 
+</span></span><span style=display:flex><span>scp ~/.ssh/id_rsa.pub mathieu@192.168.1.38:~/.ssh/authorized_keys
+</span></span></code></pre></div><h2 id=4-lockdown-logins-harden-ssh>4. Lockdown logins (harden ssh)</h2><p>sudo vim /etc/ssh/sshd_config</p><p>-> change de port : by default, it is 22. Use Something random like 717
 AddressFamily inet</p><p>PermitRootLogin must be change to no
 PasswordAuthentication to no</p><p>sudo systemctl restart sshd</p><p>No to connect, use ssh user@ip -p 717</p><h2 id=5-firewall-it-up>5. Firewall it up</h2><p>sudo ss -tupln if something is wierd, uninstall it.</p><p>firewaal it up</p><p>sudp apt install ufw
 sudo ufw allow 717
 sudo ufw enable</p><p>block pings</p><p>sudo vim /etc/ufw/before.rules
 on the paragraphe for ok icmp codes for input
--A ufw-before-input -p icmp &ndash;icmp-type echo-request -j DROP</p><p>and sudo reboot</p><ul class=pa0></ul><div class="mt6 instapaper_ignoref"></div></div><aside class="w-30-l mt6-l"></aside></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://mbesson.github.io>&copy; 2022 Mathieu Besson All rights reserved 2022</a><div><div class=ananke-socials></div></div></div></footer></body></html>
+-A ufw-before-input -p icmp &ndash;icmp-type echo-request -j DROP</p><p>and sudo reboot</p><ul class=pa0><li class="list di"><a href=/tags/linux class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">linux</a></li><li class="list di"><a href=/tags/security class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">security</a></li><li class="list di"><a href=/tags/cloud class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">cloud</a></li></ul><div class="mt6 instapaper_ignoref"></div></div><aside class="w-30-l mt6-l"></aside></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://mbesson.github.io>&copy; 2022 Mathieu Besson All rights reserved 2022</a><div><div class=ananke-socials></div></div></div></footer></body></html>
