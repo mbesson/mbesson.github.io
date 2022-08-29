@@ -1,0 +1,13 @@
+title = "My technical notes on Cloud, Data and much more"
+baseURL = "https://mbesson.github.io"
+languageCode = "en-us"
+theme = "ananke"
+resourceDir = "../resources"
+
+rssLimit = 20
+copyright = "2022 Mathieu Besson All rights reserved"
+languageCode = "en-us"
+
+[author]
+	name = "Mathieu Besson"
+	email = "mathieu.besson@tuta.io"

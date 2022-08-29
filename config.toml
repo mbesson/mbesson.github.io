@@ -1,5 +1,0 @@
-title = "Find a better title some day"
-baseURL = "https://mbesson.github.io"
-languageCode = "en-us"
-theme = "ananke"
-resourceDir = "../resources"
