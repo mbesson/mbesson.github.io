@@ -21,7 +21,7 @@ Use the private key&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>mkdir ~/.ssh &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> chmod &lt;span style="color:#ae81ff">700&lt;/span> ~/.ssh
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>on the machine:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ssh-keygen -b &lt;span style="color:#ae81ff">4096&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>scp ~/.ssh/id_rsa.pub mathieu@192.168.1.38:~/.ssh/authorized_keys
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>scp ~/.ssh/id_rsa.pub &amp;lt;user&amp;gt;@&amp;lt;IP&amp;gt;:~/.ssh/authorized_keys
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="4-lockdown-logins-harden-ssh">4. Lockdown logins (harden ssh)&lt;/h2>
 &lt;p>sudo vim /etc/ssh/sshd_config&lt;/p>
 &lt;p>-&amp;gt; change de port : by default, it is 22. Use Something random like 717

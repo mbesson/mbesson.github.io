@@ -2,7 +2,7 @@
 apt update apt dist-update If you want automatic updates:
 sudo apt install unattended-upgrades sudo dpkg-reconfigure --priority=low unattended-upgrades A GUI will appear end make sure you&rsquo;ve selected &ldquo;yes&rdquo;.
 2. Limited User Account Creating Groups Creating users and adding them to a group adduser <username> Then, you will be prompt for password
-usermod -aG sudo <username> 3."><meta name=generator content="Hugo 0.102.2"><meta name=robots content="noindex, nofollow"><link rel=stylesheet href=/ananke/css/main.min.css><meta property="og:title" content="Secure your linux VM in the cloud"><meta property="og:description" content="How to secure your linux VM in the cloud? 1. Enable auto update If you want manual updates:
+usermod -aG sudo <username> 3."><meta name=generator content="Hugo 0.102.3"><meta name=robots content="noindex, nofollow"><link rel=stylesheet href=/ananke/css/main.min.css><meta property="og:title" content="Secure your linux VM in the cloud"><meta property="og:description" content="How to secure your linux VM in the cloud? 1. Enable auto update If you want manual updates:
 apt update apt dist-update If you want automatic updates:
 sudo apt install unattended-upgrades sudo dpkg-reconfigure --priority=low unattended-upgrades A GUI will appear end make sure you&rsquo;ve selected &ldquo;yes&rdquo;.
 2. Limited User Account Creating Groups Creating users and adding them to a group adduser <username> Then, you will be prompt for password
@@ -23,7 +23,7 @@ usermod -aG sudo <username> 3."></head><body class="ma0 avenir bg-near-white"><h
 </span></span></code></pre></div><h2 id=3-password-are-for-suckers>3. Password are for suckers</h2><p>auth key pair</p><p>Give the publci key to the server
 Use the private key</p><p>on the linux server:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>mkdir ~/.ssh <span style=color:#f92672>&amp;&amp;</span> chmod <span style=color:#ae81ff>700</span> ~/.ssh
 </span></span></code></pre></div><p>on the machine:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>ssh-keygen -b <span style=color:#ae81ff>4096</span> 
-</span></span><span style=display:flex><span>scp ~/.ssh/id_rsa.pub mathieu@192.168.1.38:~/.ssh/authorized_keys
+</span></span><span style=display:flex><span>scp ~/.ssh/id_rsa.pub &lt;user&gt;@&lt;IP&gt;:~/.ssh/authorized_keys
 </span></span></code></pre></div><h2 id=4-lockdown-logins-harden-ssh>4. Lockdown logins (harden ssh)</h2><p>sudo vim /etc/ssh/sshd_config</p><p>-> change de port : by default, it is 22. Use Something random like 717
 AddressFamily inet</p><p>PermitRootLogin must be change to no
 PasswordAuthentication to no</p><p>sudo systemctl restart sshd</p><p>No to connect, use ssh user@ip -p 717</p><h2 id=5-firewall-it-up>5. Firewall it up</h2><p>sudo ss -tupln if something is wierd, uninstall it.</p><p>firewaal it up</p><p>sudp apt install ufw
