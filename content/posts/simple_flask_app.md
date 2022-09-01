@@ -1,6 +1,8 @@
 ---
-title: "Simple_flask_app"
+title: "A simple yet fun flask application"
 date: 2022-09-01T16:44:39+02:00
-draft: true
+draft: false
 ---
+
+# Do you like memes? 
 
