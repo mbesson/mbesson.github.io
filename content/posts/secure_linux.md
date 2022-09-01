@@ -57,7 +57,7 @@ on the machine:
 
 ```bash
 ssh-keygen -b 4096 
-scp ~/.ssh/id_rsa.pub mathieu@192.168.1.38:~/.ssh/authorized_keys
+scp ~/.ssh/id_rsa.pub <user>@<IP>:~/.ssh/authorized_keys
 ```
 
 
